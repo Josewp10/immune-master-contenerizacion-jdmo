@@ -18,5 +18,5 @@ spec:
       - name: backend
         image: services-quotes-service:latest
         ports:
-        - containerPort: 80000
+        - containerPort: 8000
         imagePullPolicy: Never
