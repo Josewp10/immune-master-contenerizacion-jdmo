@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: quotes-svc
-        image: backend-service:latest
+        image: services-quotes-service:latest
         ports:
         - containerPort: 8000
         imagePullPolicy: Never
