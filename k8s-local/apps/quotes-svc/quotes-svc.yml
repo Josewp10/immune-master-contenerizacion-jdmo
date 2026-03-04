@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotes-svc-deployment
+  labels:
+    app: quotes-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quotes-svc
+  template:
+    metadata:
+      labels:
+        app: quotes-svc
+    spec:
+      containers:
+      - name: quotes-svc
+        image: services-quotes-service:latest
+        ports:
+        - containerPort: 8000
+        imagePullPolicy: Never
