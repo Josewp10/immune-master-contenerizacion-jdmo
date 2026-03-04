@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
+  name: quotes-svc-deployment
   labels:
-    app: backend
+    app: quotes-svc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: quotes-svc
   template:
     metadata:
       labels:
-        app: backend
+        app: quotes-svc
     spec:
       containers:
-      - name: backend
-        image: services-quotes-service:latest
+      - name: quotes-svc
+        image: backend-service:latest
         ports:
         - containerPort: 8000
         imagePullPolicy: Never
