@@ -50,3 +50,6 @@ Istio provides service mesh communication and mTLS between the frontend and quot
 ### Images
 - **Kiali Tracing**: ![Kiali Tracing](./docs/kiali-tracing.png)
 - **Grafana Metrics**: ![Grafana Metrics](./docs/grafana.png)
+
+## Video Demo
+[Entrega de arquitectura Cloud-Native](https://youtu.be/Wu7iCF_vv0w)
