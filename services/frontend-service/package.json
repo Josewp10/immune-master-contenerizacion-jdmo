@@ -1,0 +1,22 @@
+{
+  "name": "frontend-service",
+  "version": "1.0.0",
+  "description": "Frontend microservice for QuotesMesh demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/core": "^1.25.0",
+    "@opentelemetry/exporter-jaeger": "^1.21.0",
+    "@opentelemetry/instrumentation": "^0.52.1",
+    "@opentelemetry/instrumentation-express": "^0.42.0",
+    "@opentelemetry/instrumentation-http": "^0.52.1",
+    "@opentelemetry/sdk-node": "^0.52.1",
+    "@opentelemetry/sdk-trace-base": "^1.25.0",
+    "axios": "^1.13.6",
+    "express": "^4.22.1",
+    "prom-client": "^15.1.3"
+  }
+}

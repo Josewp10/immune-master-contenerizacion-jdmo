@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotes-svc-deployment
+  labels:
+    app: quotes-svc
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: quotes-svc
+  template:
+    metadata:
+      labels:
+        app: quotes-svc
+    spec:
+      containers:
+      - name: quotes-svc
+        image: services-quotes-service:latest
+        ports:
+        - containerPort: 8000
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: "1m"
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"

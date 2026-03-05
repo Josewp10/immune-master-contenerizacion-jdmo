@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: services-frontend-service:latest
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "10Mi"
+          limits:
+            cpu: "100m"
+            memory: "64Mi"
+        env:
+          - name: QUOTES_SERVICE_URL
+            value: "http://quotes-svc-service.immune-master.svc.cluster.local:8000"

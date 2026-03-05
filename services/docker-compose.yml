@@ -1,0 +1,15 @@
+
+services:
+  frontend-service:
+    build: ./frontend-service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - quotes-service
+    environment:
+      - QUOTES_SERVICE_URL=http://quotes-service:8000
+
+  quotes-service:
+    build: ./quotes-service
+    ports:
+      - "8000:8000"
