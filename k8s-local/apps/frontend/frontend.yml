@@ -5,7 +5,12 @@ metadata:
   labels:
     app: frontend
 spec:
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: frontend
@@ -20,6 +25,13 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "10Mi"
+          limits:
+            cpu: "100m"
+            memory: "64Mi"
         env:
-            - name: QUOTES_SERVICE_URL
-              value: "http://quotes-svc-service.default.svc.cluster.local:8000"
+          - name: QUOTES_SERVICE_URL
+            value: "http://quotes-svc-service.immune-master.svc.cluster.local:8000"
